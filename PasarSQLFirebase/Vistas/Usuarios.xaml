@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PasarSQLFirebase.Vistas.Usuarios">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0">
+            <Image x:Name="imagenCelular"/>
+            <Entry Placeholder="Usuario" x:Name="txtusuario" />
+            <Entry Placeholder="Contraseña" x:Name="txtcontrasenia" />
+            <Button Text="Agregar imagen" x:Name="btnagregarimagen"
+                    Clicked="btnagregarimagen_Clicked"/>
+            <Button Text="Guardar" x:Name="btnGuardar"
+                        Clicked="btnGuardar_Clicked"/>
+
+        </StackLayout>
+        <CollectionView Grid.Row="1" x:Name="listaUsuarios">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition  Height="130"/>
+                            <RowDefinition  Height="40"/>
+                        </Grid.RowDefinitions>
+                        <ImageButton Grid.Row="0" Source="{Binding Icono}"
+                                     BackgroundColor="WhiteSmoke"
+                                     VerticalOptions="Fill"
+                                     HorizontalOptions="Fill"
+                                     Aspect="AspectFit"
+                                     x:Name="btnIcono"/>
+                        <Label Text="{Binding Usuario}"
+                               Grid.Row="1"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand"
+                               FontAttributes="Bold"
+                               FontSize="14"
+                               TextColor="White"
+                               BackgroundColor="Black"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
